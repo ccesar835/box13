@@ -234,6 +234,8 @@ nav ul li .space-btn {
   margin-top: 0px;
   margin-bottom: 50px;
   z-index: 1;
+  flex: 1;
+  overflow: hidden;
 }
 
 .hero-logo {
@@ -263,11 +265,6 @@ nav ul li .space-btn {
 
 .hero-image:hover ~ .hero-logo img {
   filter: invert(0);
-}
-
-.hero-image {
-  flex: 1;
-  overflow: hidden;
 }
 
 .hero-image img {

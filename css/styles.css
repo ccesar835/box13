@@ -20,16 +20,14 @@ header {
 }
 
 header video {
-  will-change: auto;
-  margin: 0px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  height: auto;
-  z-index: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    z-index: 0;
 }
 
 h1 {
@@ -45,16 +43,27 @@ header h1 {
 }
 
 nav ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 nav ul li {
-  margin: 10px;
+    margin: 10px;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
 }
 
 :root {

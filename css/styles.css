@@ -19,6 +19,16 @@ header {
   height: 70vh;
 }
 
+.header {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+    gap: 10px;
+
+}
+
 header video {
     position: absolute;
     top: 50%;

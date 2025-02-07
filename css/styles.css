@@ -413,7 +413,7 @@ footer {
     margin-top: 10px;
     flex-direction: column;
     margin-bottom: 10px;
-    height: fit-content;
+    height: auto;
   }
 
   nav ul li {

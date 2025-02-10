@@ -1,5 +1,7 @@
+/* Global Styles */
 html {
   scroll-behavior: smooth;
+  font-size: 16px; /* Base font size */
 }
 
 body {
@@ -10,8 +12,44 @@ body {
   padding: 0;
 }
 
+:root {
+  --btn-color: #fff;
+  --primary-color: #ff6600;
+  --secondary-color: #e55d00;
+  --hover-lighten: 20%;
+  --hover-darken: 10%;
+  --base-font-size: 16px;
+}
+
+/* Utility Classes */
+* {
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Responsive Font Sizes */
+@media (max-width: 600px) {
+  :root {
+    --base-font-size: 14px;
+  }
+}
+
+@media (min-width: 601px) {
+  :root {
+    --base-font-size: 16px;
+  }
+}
+
+body {
+  font-size: var(--base-font-size);
+}
+
+/* Header Styles */
 header {
-  background-color: #ff6600;
+  background-color: var(--primary-color);
   padding: 20px;
   text-align: center;
   position: relative;
@@ -20,8 +58,6 @@ header {
 }
 
 header video {
-  will-change: auto;
-  margin: 0px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -32,18 +68,14 @@ header video {
   z-index: 0;
 }
 
-h1 {
-  font-size: 3em;
-}
-
 header h1 {
   margin: 0;
   font-size: 3em;
   position: relative;
   z-index: 1;
-  padding-top: -10px;
 }
 
+/* Navigation Styles */
 nav ul {
   list-style: none;
   padding: 0;
@@ -55,14 +87,6 @@ nav ul {
 
 nav ul li {
   margin: 10px;
-}
-
-:root {
-  --btn-color: #fff;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 nav ul li .space-btn {
@@ -79,14 +103,15 @@ nav ul li .space-btn {
   background: none;
   border: none;
   cursor: pointer;
+  transition: color 0.3s;
 }
 
 .space-btn:hover {
-  color: lighten(var(--btn-color), 20%);
+  color: lighten(var(--btn-color), var(--hover-lighten));
 }
 
 .space-btn:focus {
-  color: lighten(var(--btn-color), 10%);
+  color: lighten(var(--btn-color), var(--hover-darken));
   outline: none;
 }
 
@@ -123,6 +148,7 @@ nav ul li .space-btn {
   animation: hoverShadowAfter 1s forwards;
 }
 
+/* Keyframes */
 @keyframes hoverShadowBefore {
   0% {
     width: 100%;
@@ -174,7 +200,7 @@ nav ul li .space-btn {
     right: 0;
   }
 }
-
+/* Hero Section */
 #hero {
   display: flex;
   position: relative;
@@ -267,7 +293,7 @@ nav ul li .space-btn {
   height: 100%;
   object-fit: cover;
 }
-
+/* Services Section */
 #services {
   background: url('/images/car911.jpg') no-repeat center center;
   background-size: cover;
@@ -276,6 +302,9 @@ nav ul li .space-btn {
   position: relative;
   margin-bottom: 40px;
   z-index: 2;
+  font-weight: bold;
+  font-size: 1.1em;
+  text-shadow:#000 1px 2px 1px;
 }
 
 .services-content {
@@ -295,6 +324,7 @@ nav ul li .space-btn {
   margin-bottom: 20px;
 }
 
+/* Courses Section */
 #courses {
   padding: 0 40px 40px 40px;
   text-align: center;
@@ -312,6 +342,30 @@ nav ul li .space-btn {
   flex-direction: column;
   align-items: center;
 }
+/* CSS for Rotating Image on Scroll */
+.rotating-image-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 720px; /* Adjust as needed */
+  margin: 0 auto; /* Center the image */
+}
+
+.rotating-image {
+  width: 100%;
+  height: auto;
+  animation: rotate 10s linear ease-in; 
+}
+
+/* Keyframes for rotation animation */
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
 
 .image-frame {
   margin: 20px 0;
@@ -323,7 +377,6 @@ nav ul li .space-btn {
   max-width: 1000px;
 }
 
-
 .image-frame img {
   width: 100%;
   height: auto;
@@ -333,6 +386,7 @@ nav ul li .space-btn {
   margin: 10px 0;
 }
 
+/* About Section */
 #about {
   background: url('/images/casal.jpg') no-repeat center center;
   background-size: cover;
@@ -346,29 +400,64 @@ nav ul li .space-btn {
   border-radius: 10px;
 }
 
+/* Contact Section */
 #contact {
-  background: url('/images/workshopintro.jpg') no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 50, 0), rgba(0, 0, 50, 0)), url('/images/workshopintro.jpg') no-repeat center center;
   background-size: cover;
   padding: 20px;
+  margin-top: 0px;
   color: #fff;
+  
 }
 
-footer {
-  padding: 10px;
-  color: #fff;
+#contact p {
+  margin-top: 0px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 1.1em;
+  text-shadow:#000 2px 2px 2px;
 }
 
-.contact, .footer {
+/* Footer */
+#footer {
   width: 100%;
-  transform: scale(1);
-  transform-origin: top left;
+  padding: 10px 20px;
+  color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  background-color: #000;
 }
 
+#footer p {
+  margin: 20px 0 10px;
+  padding-right: 20px;
+  text-align: right;
+  width: 100%;
+}
+
+.footer {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 20px;
+}
+
+/* Back to Top Button */
 #back-to-top {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #ff6600;
+  background-color: var(--primary-color);
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -379,7 +468,7 @@ footer {
 }
 
 #back-to-top:hover {
-  background-color: #e55d00;
+  background-color: var(--secondary-color);
   transform: scale(1.1);
 }
 
@@ -387,6 +476,7 @@ footer {
   font-size: 14px;
 }
 
+/* Media Queries */
 @media (max-width: 600px) {
   header,
   nav ul,
@@ -394,18 +484,21 @@ footer {
   #services,
   #courses,
   #about,
-  #contact,
-  header {
-    margin-top: -0px;
-    
+  #contact {
+    margin-top: 0;
   }
+
   header h1 {
     margin: 0;
-    gap: 0;
   }
 
   footer {
     padding: 10px;
+  }
+
+  #footer p {
+    padding-right: 10px;
+    text-align: right;
   }
 
   nav ul {
@@ -420,10 +513,6 @@ footer {
     margin: 5px 0;
   }
 
-  #hero .logo-logo {
-    max-height: 100px;
-  }
-
   .image-frame {
     width: 100%;
   }
@@ -432,10 +521,6 @@ footer {
 @media (min-width: 601px) {
   #hero {
     padding: 100px;
-  }
-
-  #hero .logo {
-    max-height: 100px;
   }
 
   #services,
@@ -450,53 +535,52 @@ footer {
   }
 }
 
+/* Contact Buttons */
 .contact-buttons {
-  flex-direction: column;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: row; /* Altera para disposição em linha */
+  justify-content:left; /* Centraliza os botões horizontalmente */
+  align-items: center;
   margin-top: 40px;
+  gap: 20px; /* Espaçamento entre os botões */
 }
-.contacto-buttons a {
-  margin-bottom: 10px;
+
+.contact-buttons a {
+  margin-bottom: 0px;
+}
+
+.visit-button,
+.instagram-button,
+.tiktok-button,
+.whatsapp-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px; /* Largura fixa para formar círculo */
+  height: 20px; /* Altura fixa para formar círculo */
+  padding: 0;
+  text-decoration: none;
+  border-radius: 50%; /* Torna os botões circulares */
+  box-shadow: 2px 2px 5px #000, -2px -2px 5px #fff;
+  transition: all 0.3s ease;
 }
 
 .visit-button {
-  display: inline-block;
   background-color: #c0c0c0;
   color: #000;
-  padding: 5px 10px;
-  text-decoration: none;
   border: 2px solid #000;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px #000, -2px -2px 5px #fff;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.visit-button i {
-  margin-right: 5px;
 }
 
 .visit-button:hover,
 .visit-button:active {
   background-color: #b0b0b0;
-  box-shadow: inset 2px 2px 5px #000, inset -2px -2px 5px #fff;
+  border-color: #fff;
 }
 
 .instagram-button {
-  display: inline-block;
   background-color: #e1306c;
   color: #fff;
-  padding: 5px 10px;
-  text-decoration: none;
   border: 2px solid #e1306c;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px #000, -2px -2px 5px #fff;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-.instagram-button i {
-  margin-right: 5px;
 }
 
 .instagram-button:hover,
@@ -506,19 +590,9 @@ footer {
 }
 
 .tiktok-button {
-  display: inline-block;
   background-color: #000;
   color: #fff;
-  padding: 5px 10px;
-  text-decoration: none;
   border: 2px solid #000;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px #000, -2px -2px 5px #fff;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-.tiktok-button i {
-  margin-right: 5px;
 }
 
 .tiktok-button:hover,
@@ -528,27 +602,13 @@ footer {
 }
 
 .whatsapp-button {
-  display: inline-block;
   background-color: #25d366;
   color: #fff;
-  padding: 5px 10px;
-  text-decoration: none;
   border: 2px solid #25d366;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px #000, -2px -2px 5px #fff;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-.whatsapp-button i {
-  margin-right: 5px;
 }
 
 .whatsapp-button:hover,
 .whatsapp-button:active {
   background-color: #128c7e;
   border-color: #128c7e;
-}
-
-#contact p {
-  margin-bottom: 20px;
 }

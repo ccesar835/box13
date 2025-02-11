@@ -218,42 +218,21 @@ nav ul li .space-btn {
   margin-top: 0px;
 }
 
-@keyframes slideFromLeft {
-  0% {
-    transform: translateX(-100%);
-    opacity: 1;
-  }
-  50% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(0);
+@keyframes fadeInOut {
+  0%, 100% {
     opacity: 0;
   }
-}
-
-@keyframes slideFromRight {
-  0% {
-    transform: translateX(100%);
-    opacity: 1;
-  }
   50% {
-    transform: translateX(0);
     opacity: 1;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 0;
   }
 }
 
 .hero-image.left {
-  animation: slideFromLeft 4s ease-out infinite;
+  animation: fadeInOut 4s ease-out infinite;
 }
 
 .hero-image.right {
-  animation: slideFromRight 4s ease-out infinite;
+  animation: fadeInOut 4s ease-out infinite;
 }
 
 .hero-image {
@@ -279,6 +258,16 @@ nav ul li .space-btn {
   transition: filter 0.3s ease;
   animation: logoColorChange 4s infinite;
 }
+
+@keyframes logoColorChange {
+  0%, 50% {
+    filter: invert(1);
+  }
+  51%, 100% {
+    filter: invert(0)
+  }
+}
+
 
 @keyframes logoColorChange {
   0%, 50% {
@@ -355,7 +344,7 @@ nav ul li .space-btn {
   border-radius: 10px;
   overflow: hidden;
   width: 100%;
-  max-width: 1000px;
+  max-width: auto;
 }
 
 .image-frame img {

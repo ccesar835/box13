@@ -10,6 +10,7 @@ body {
   font-family: Georgia, 'Times New Roman', Times, serif;
   margin: 0;
   padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 :root {
@@ -45,6 +46,13 @@ body {
 
 body {
   font-size: var(--base-font-size);
+}
+
+/* Main Container */
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px; /* Add padding for content spacing */
 }
 
 /* Header Styles */
@@ -200,6 +208,7 @@ nav ul li .space-btn {
     right: 0;
   }
 }
+
 /* Hero Section */
 #hero {
   display: flex;
@@ -293,6 +302,7 @@ nav ul li .space-btn {
   height: 100%;
   object-fit: cover;
 }
+
 /* Services Section */
 #services {
   background: url('/images/car911.jpg') no-repeat center center;
@@ -337,36 +347,6 @@ nav ul li .space-btn {
   margin-bottom: 0;
 }
 
-.image-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-/* CSS for Rotating Image on Scroll */
-.rotating-image-container {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  max-width: 720px; /* Adjust as needed */
-  margin: 0 auto; /* Center the image */
-}
-
-.rotating-image {
-  width: 100%;
-  height: auto;
-  animation: rotate 10s linear ease-in; 
-}
-
-/* Keyframes for rotation animation */
-@keyframes rotate {
-  from {
-      transform: rotate(0deg);
-  }
-  to {
-      transform: rotate(360deg);
-  }
-}
-
 .image-frame {
   margin: 20px 0;
   margin-bottom: 10%;
@@ -407,7 +387,6 @@ nav ul li .space-btn {
   padding: 20px;
   margin-top: 0px;
   color: #fff;
-  
 }
 
 #contact p {
@@ -538,11 +517,11 @@ nav ul li .space-btn {
 /* Contact Buttons */
 .contact-buttons {
   display: flex;
-  flex-direction: row; /* Altera para disposição em linha */
-  justify-content:left; /* Centraliza os botões horizontalmente */
+  flex-direction: row;
+  justify-content: left;
   align-items: center;
   margin-top: 40px;
-  gap: 20px; /* Espaçamento entre os botões */
+  gap: 20px;
 }
 
 .contact-buttons a {
@@ -556,11 +535,11 @@ nav ul li .space-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20px; /* Largura fixa para formar círculo */
-  height: 20px; /* Altura fixa para formar círculo */
+  width: 20px;
+  height: 20px;
   padding: 0;
   text-decoration: none;
-  border-radius: 50%; /* Torna os botões circulares */
+  border-radius: 50%;
   box-shadow: 2px 2px 5px #000, -2px -2px 5px #fff;
   transition: all 0.3s ease;
 }
